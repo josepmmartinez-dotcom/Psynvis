@@ -1,0 +1,682 @@
+/* =========================================================
+   PSYNVIS · FAR WEST FULL CSS
+   Versión completa · copiar y pegar íntegra
+   ========================================================= */
+
+/* ---------- VARIABLES ---------- */
+:root{
+  --paper:#f3ead7;
+  --paper-soft:#efe2c9;
+
+  --ink:#1a120c;
+  --accent:#b33b2e;
+  --accent-2:#2b6f4a;
+
+  --radius:18px;
+  --shadow:0 18px 50px rgba(0,0,0,.18);
+
+  /* Tipografías (consistencia total) */
+    --font-body: "Crimson Pro", Georgia, "Times New Roman", serif;
+    --font-display: "Rye", Georgia, serif;
+}
+
+/* ---------- RESET ---------- */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  /* Tipografía base (papiro legible) */
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.55;
+  color:#2b1e12;
+
+  background:
+    radial-gradient(1200px 700px at 20% 0%, rgba(179,59,46,.10), transparent 60%),
+    radial-gradient(1200px 700px at 90% 10%, rgba(43,111,74,.08), transparent 55%),
+    linear-gradient(180deg, #f6ecd6 0%, #efe0c1 40%, #f8f0dd 100%);
+
+    /* ---------- TIPOGRAFÍA WESTERN CONSISTENTE ---------- */
+    h1, h2, h3{
+      font-family: var(--font-display);
+      letter-spacing: .03em;
+    }
+
+    p, li, blockquote, .paper, .quote{
+      font-family: var(--font-body);
+    }
+
+    .kicker,
+    .section-sub,
+    .micro,
+    .badge,
+    .step-num,
+    .nav a,
+    .btn{
+      font-family: var(--font-body);
+    }
+  }
+
+/* ---------- TIPOGRAFÍA GLOBAL (NO MÁS MEZCLAS) ---------- */
+h1, h2, h3{
+  font-family: var(--font-display);
+  letter-spacing: .02em;
+}
+
+p, li, blockquote, .paper, .quote{
+  font-family: var(--font-body);
+}
+
+.kicker,
+.section-sub,
+.micro,
+.badge,
+.step-num,
+.nav a,
+.btn{
+  
+}
+
+
+/* ---------- TIPOGRAFÍA WESTERN (consistencia) ---------- */
+
+/* Títulos: estilo cartel / saloon */
+h1, h2, h3{
+  font-family: Rockwell, "Rockwell Extra Bold", Georgia, "Times New Roman", serif;
+  letter-spacing: .02em;
+}
+
+/* H1 con más carácter */
+h1{
+  text-transform: none;
+}
+
+/* UI (nav, botones, microcopy) también western */
+.nav a,
+.btn,
+.kicker,
+.section-sub,
+.micro,
+.badge,
+.step-num{
+  letter-spacing: .03em;
+}
+
+
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+/* ---------- LAYOUT ---------- */
+.wrap{
+  max-width:1100px;
+  margin:0 auto;
+  padding:20px;
+}
+
+/* ---------- TOPBAR · PROPUESTA A ---------- */
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:rgba(28,22,16,.70);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(255,255,255,.10);
+}
+
+.topbar-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:18px;
+  padding:14px 20px;
+}
+
+.brand{
+  display:flex;
+  flex-direction:column;
+  line-height:1;
+}
+
+.brand-mark{
+  font-size:60px;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+  color:#f3ead7;
+  text-shadow:0 2px 10px rgba(0,0,0,.35);
+}
+
+.brand-sub{
+  margin-top:6px;
+  font-size:15px;
+  font-weight:600;
+  color:rgba(243,234,215,.88);
+  letter-spacing:.06em;
+}
+
+.nav{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.nav a{
+  font-family: var(--font-body);
+  font-size: 18px;          /* antes ~15–16 */
+  font-weight: 600;
+  padding: 12px 16px;       /* botones más grandes */
+  border-radius: 14px;
+  color: rgba(243,234,215,.95);
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(243,234,215,.18);
+}
+
+.nav a:hover{
+  background:rgba(255,255,255,.08);
+  border-color:rgba(243,234,215,.30);
+}
+
+.nav .btn.small{
+  font-size:15px;
+  padding:10px 14px;
+  border-radius:14px;
+}
+
+
+/* ---------- BOTONES ---------- */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: 14px 20px;       /* más grandes */
+  border-radius: 16px;
+  font-family: var(--font-body);
+  font-size: 18px;          /* clave */
+  font-weight: 700;
+  letter-spacing: .04em;
+  border: 1px solid transparent;
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 0 10px 26px rgba(0,0,0,.35);
+}
+
+.btn.small{padding:9px 12px;border-radius:12px}
+
+.btn:hover{transform:translateY(-1px)}
+.btn:active{transform:translateY(0)}
+
+.btn.ghost{
+  background:transparent;
+  color:var(--paper);
+  border-color:rgba(243,234,215,.32);
+  box-shadow:none;
+}
+
+/* ---------- HERO ---------- */
+.hero{
+  position:relative;
+  overflow:hidden;
+  padding:56px 0 36px;
+  color: var(--paper);
+}
+
+/* Imagen western */
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:-40px;
+  background:url("assets/hero-bg.png") center/cover no-repeat;
+  filter:blur(2px) contrast(1.1) saturate(.9);
+  opacity:1;
+  transform:scale(1.06);
+  pointer-events:none;
+}
+
+/* Polvo / atmósfera */
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 18% 30%, rgba(243,234,215,.18), transparent 45%),
+    radial-gradient(circle at 72% 38%, rgba(243,234,215,.14), transparent 55%),
+    radial-gradient(circle at 52% 82%, rgba(243,234,215,.12), transparent 65%);
+  mix-blend-mode:overlay;
+  pointer-events:none;
+}
+
+.hero-inner{
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:26px;
+  align-items:center;
+}
+
+@media (max-width:900px){
+  .hero-inner{grid-template-columns:1fr}
+}
+
+.kicker{
+  font-family:ui-sans-serif,system-ui,Segoe UI,Roboto,Arial;
+  font-size:12px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  opacity:.78;
+  margin:0 0 10px;
+}
+
+h1{
+  margin:0 0 14px;
+  font-size:56px;
+  line-height:.95;
+}
+
+@media (max-width:520px){
+  h1{font-size:44px}
+}
+
+.lead{
+  margin:0 0 18px;
+  font-size:33px;
+  line-height:1.35;
+  opacity:.9;
+}
+
+.micro{
+  font-size:12px;
+  opacity:.75;
+  margin-top:16px;
+}
+
+.cta-row{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+/* ---------- SECCIONES ---------- */
+.section, .final, .footer{
+  color:#2b1e12;
+}
+
+.section{
+  padding:44px 0;
+}
+
+.section .wrap{
+  position:relative;
+}
+
+.section .wrap::before{
+  content:"";
+  position:absolute;
+  inset:-18px -10px;
+  background:rgba(255,255,255,.35);
+  border:1px solid rgba(43,30,18,.12);
+  border-radius:22px;
+  box-shadow: 0 16px 40px rgba(0,0,0,.12);
+  z-index:-1;
+}
+
+.section-head{
+  margin-bottom:18px;
+}
+
+h2{
+  font-size:34px;
+  margin:0 0 10px;
+  position:relative;
+  display:inline-block;
+}
+
+h2::after{
+  content:"";
+  display:block;
+  height:4px;
+  margin-top:8px;
+  border-radius:999px;
+  background:linear-gradient(90deg, rgba(179,59,46,.55), rgba(43,111,74,.35));
+}
+
+.section-sub{
+  opacity:.82;
+}
+
+/* ---------- PAPEL / CARTEL ---------- */
+.paper{
+  background:linear-gradient(180deg,var(--paper),var(--paper-soft));
+  color:var(--ink);
+  border-radius:var(--radius);
+  border:1px solid rgba(26,18,12,.18);
+  box-shadow:var(--shadow);
+  padding:22px;
+  position:relative;
+}
+
+.paper::after{
+  content:"";
+  position:absolute;
+  inset:12px;
+  border:1px dashed rgba(26,18,12,.28);
+  border-radius:14px;
+  pointer-events:none;
+}
+
+.paper p{
+  margin:0 0 14px;
+  font-size:18px;
+  line-height:1.5;
+}
+
+.p-lead{font-size:20px}
+
+/* ---------- QUOTE ---------- */
+.quote{
+  margin:22px 0;
+  padding:16px;
+  border-left:4px solid rgba(179,59,46,.55);
+  background:rgba(179,59,46,.12);
+  border-radius:14px;
+  font-size:18px;
+}
+
+/* ---------- GRIDS ---------- */
+.grid-2{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+@media (max-width:900px){
+  .grid-2{grid-template-columns:1fr}
+}
+
+/* ---------- PASOS ---------- */
+.steps{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+}
+
+@media (max-width:900px){
+  .steps{grid-template-columns:1fr 1fr}
+}
+@media (max-width:520px){
+  .steps{grid-template-columns:1fr}
+}
+
+.step{
+ background: linear-gradient(180deg, #f7edd6, #efe2c3);
+  border: 2px solid #c9b38a;
+  border-radius: 18px;
+  padding: 24px 22px 26px;
+  position: relative;
+  box-shadow:
+    0 14px 30px rgba(0,0,0,.18),
+    inset 0 0 0 2px rgba(255,255,255,.35);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.step::after{
+  content:"✦";
+  position:absolute;
+  top:14px;
+  right:16px;
+  font-size:14px;
+  opacity:.4;
+}
+
+.step-num{
+  font-family: 'Crimson Pro', serif;
+  font-size:14px;
+  letter-spacing:.22em;
+  opacity:.55;
+  margin-bottom:10px;
+}
+
+/* ---------- TARJETAS ---------- */
+.cards{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+
+@media (max-width:900px){
+  .cards{grid-template-columns:1fr}
+}
+
+.card{
+  background:rgba(255,255,255,.28);
+  border:1px solid rgba(43,30,18,.14);
+  border-radius:var(--radius);
+  padding:18px;
+}
+
+.card p{
+  font-family:ui-sans-serif,system-ui,Segoe UI,Roboto,Arial;
+  opacity:.85;
+}
+
+/* ---------- NIVELES ---------- */
+.levels{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+
+@media (max-width:900px){
+  .levels{grid-template-columns:1fr 1fr}
+}
+@media (max-width:520px){
+  .levels{grid-template-columns:1fr}
+}
+
+.level{
+  background:rgba(255,255,255,.28);
+  border:1px solid rgba(43,30,18,.14);
+  border-radius:var(--radius);
+  padding:16px;
+}
+
+.badge{
+  display:inline-flex;
+  padding:6px 10px;
+  border-radius:999px;
+  background:rgba(179,59,46,.15);
+  border:1px solid rgba(179,59,46,.35);
+  color:#2b1e12;
+  font-family:ui-sans-serif,system-ui,Segoe UI,Roboto,Arial;
+  font-weight:900;
+  font-size:11px;
+  letter-spacing:.08em;
+  margin-bottom:10px;
+}
+
+/* ---------- FINAL ---------- */
+.final{
+  padding:56px 0 46px;
+  background:linear-gradient(180deg, rgba(179,59,46,.10), transparent 75%);
+}
+
+.final-inner{
+  background:rgba(255,255,255,.22);
+  border:1px solid rgba(43,30,18,.12);
+  border-radius:calc(var(--radius) + 6px);
+  padding:26px;
+}
+
+/* ---------- FOOTER ---------- */
+.footer{
+  border-top:1px solid rgba(43,30,18,.16);
+  padding:20px 0 28px;
+}
+
+.footer-inner{
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.muted{opacity:.75}
+
+/* ---------- INFOGRAFÍA (Siempre visible, grande, centrada) ---------- */
+.infografia-wrap{
+  margin-top: 22px;
+  display:flex;
+  justify-content:center;
+}
+
+.infografia-frame{
+  width: min(1100px, 100%);
+  padding: 14px;
+  border-radius: 22px;
+  border: 1px solid rgba(43,30,18,.18);
+  background: rgba(255,255,255,.38);
+  box-shadow: 0 18px 50px rgba(0,0,0,.14);
+}
+
+.infografia-frame img{
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius: 16px;
+  border: 1px dashed rgba(43,30,18,.25);
+}
+
+@media (max-width:520px){
+  .infografia-frame{ padding: 10px; border-radius: 18px; }
+  .infografia-frame img{ border-radius: 12px; }
+}
+
+/* Tipos para topbar */
+.brand-mark{
+  font-family: var(--font-display); /* Rye */
+}
+.brand-sub,
+.nav a,
+.btn{
+  font-family: var(--font-body); /* Crimson Pro */
+}
+
+/* ---------- CTA PRINCIPAL: IMPRIMIR ---------- */
+.nav .btn.small{
+  font-size: 19px;
+  padding: 14px 22px;
+  border-radius: 999px;
+
+  background: linear-gradient(
+    180deg,
+    #f6e6c5 0%,
+    #e6c08b 100%
+  );
+
+  color: #2b1e12;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+
+  border: 2px solid rgba(43,30,18,.35);
+  box-shadow:
+    0 10px 26px rgba(0,0,0,.35),
+    inset 0 1px 0 rgba(255,255,255,.65);
+}
+
+.nav .btn.small:hover{
+  transform: translateY(-1px);
+  box-shadow:
+    0 14px 34px rgba(0,0,0,.45),
+    inset 0 1px 0 rgba(255,255,255,.75);
+}
+
+:root{
+  scroll-padding-top: 120px;
+}
+
+/* =========================================================
+   BOTÓN CTA HERO: idéntico al "IMPRIMIR" del menú
+   ========================================================= */
+
+.btn.btn-cta{
+  font-family: "Crimson Pro", ui-serif, Georgia, serif; /* misma vibra que el menú */
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+
+  padding: 14px 22px;
+  border-radius: 999px;
+
+  background: linear-gradient(180deg, #f3d9a8 0%, #d9b77b 100%);
+  color: #2b1e12;
+
+  border: 1px solid rgba(43,30,18,.28);
+  box-shadow:
+    0 14px 30px rgba(0,0,0,.22),
+    inset 0 2px 0 rgba(255,255,255,.55);
+}
+
+.btn.btn-cta:hover{
+  transform: translateY(-1px);
+  box-shadow:
+    0 18px 40px rgba(0,0,0,.26),
+    inset 0 2px 0 rgba(255,255,255,.6);
+  filter: saturate(1.05) contrast(1.02);
+}
+
+.btn.btn-cta:active{
+  transform: translateY(0);
+  box-shadow:
+    0 10px 22px rgba(0,0,0,.20),
+    inset 0 1px 0 rgba(255,255,255,.45);
+}
+
+@media (min-width: 900px){
+  #objeto h2{
+    white-space: nowrap;
+  }
+}
+
+/* =========================================================
+   BILLETE (imagen) en sección #objeto
+   ========================================================= */
+
+.bill-preview{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+
+  padding:18px;
+  border-radius:0px;
+  border:1px solid rgba(43,30,18,.18);
+  background: rgba(255,255,255,.42);
+  box-shadow: 0 18px 50px rgba(0,0,0,.14);
+  image-rendering: auto;
+  filter: contrast(1.05) saturate(1.05);
+}
+
+.bill-preview img{
+  width:min(520px, 100%);
+  height:auto;
+  display:block;
+  border-radius:0px;
+  border:1px dashed rgba(43,30,18,.25);
+  box-shadow: 0 14px 32px rgba(0,0,0,.18);
+}
+
+.bill-caption{
+  margin:0;
+  font-family: "Crimson Pro", ui-serif, Georgia, serif;
+  font-size:16px;
+  opacity:.82;
+}
+
+.step h3{
+  font-family: 'Rye', serif;
+  font-size:26px;
+  margin:0 0 10px;
+}
+
