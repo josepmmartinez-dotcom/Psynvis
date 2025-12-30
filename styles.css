@@ -1144,3 +1144,56 @@ h2::after{
   color: #2b1e12;
   background: rgba(255,255,255,0.55);
 }
+/* ==============================
+   NAV MÓVIL (HERO/TOPBAR) PRO
+   ============================== */
+@media (max-width: 820px){
+
+  /* Logo arriba + menú abajo */
+  .topbar-inner{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  /* Menú en una sola fila, deslizable */
+  .nav{
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 6px;
+  }
+
+  /* Oculta scrollbar fea (sigue siendo scroll) */
+  .nav::-webkit-scrollbar{ height: 6px; }
+  .nav::-webkit-scrollbar-thumb{ background: rgba(255,255,255,.18); border-radius: 999px; }
+  .nav::-webkit-scrollbar-track{ background: transparent; }
+
+  /* Botones más compactos pero legibles */
+  .btn.btn-nav{
+    flex: 0 0 auto;
+    padding: 10px 14px;
+    font-size: 14px;
+    border-radius: 14px;
+    white-space: nowrap;
+  }
+
+  /* El amarillo (IMPRIMIR) sigue destacando */
+  .btn.btn-nav.btn-print{
+    padding: 10px 18px;
+  }
+
+  /* Evita que el menú “pise” el HERO */
+  .hero{
+    padding-top: 18px;
+  }
+}
+
+/* Para que al clicar anclas no quede cortado por la topbar */
+:root{ scroll-padding-top: 120px; }
+@media (max-width: 820px){
+  :root{ scroll-padding-top: 160px; }
+}
